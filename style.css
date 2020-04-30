@@ -7,8 +7,31 @@ h1 {
   color: tan;
 }
 
-p {
+h2 {
   font-family: "American Typewriter";
-  font-size: 12px;
+  font-size: 18px;
   color: tan;
 }
+
+p {
+  font-family: "American Typewriter";
+  font-size: 14px;
+  color: tan;
+}
+
+table, th, td {
+  border: 1px solid tan;
+}
+
+th {
+  font-family: "American Typewriter";
+  font-size: 14px;
+  color: black;
+}
+
+td {
+  font-family: "American Typewriter";
+  font-size: 14px;
+  color: black;
+}
+
