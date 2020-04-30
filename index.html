@@ -7,49 +7,89 @@
 <div id='state' style='text-align: center'> <h2> Turn: Spring 1901 </h2> <p> Current Board State: </p> </div>
 <div id='board_img' style='text-align: center'>
     <img src="board.jpeg" alt="Board" style="width:700px;height:500px;">
-    <br> <br /> <br />
+    </div>
+<br> <br />
+
+<div class='flex-container'>
+    <div class='flex-child'>
+    <br> <br />
+    <table style="height:80%; text-align: center; margin-left: auto; margin-right: auto;">
+      <colgroup>
+        <col span='3' style="background-color:tan">
+      </colgroup>
+      <tr>
+        <th style="width:150px"> Player </th>
+        <th style="width:150px"> Country </th>
+        <th style="width:150px"> Supply Centers </th>
+      </tr>
+      <tr>
+        <td> Ella </td>
+        <td> Italy </td>
+        <td> 3 </td>
+      </tr>
+      <tr>
+        <td> Eric </td>
+        <td> France </td>
+        <td> 3 </td>
+      </tr>
+      <tr>
+        <td> Haley </td>
+        <td> Russia </td>
+        <td> 4 </td>
+      </tr>
+      <tr>
+        <td> Jen </td>
+        <td> England </td>
+        <td> 3 </td>
+      </tr>
+      <tr>
+        <td> John </td>
+        <td> Turkey </td>
+        <td> 3 </td>
+      </tr>
+      <tr>
+        <td> Marc </td>
+        <td> Austro-Germany </td>
+        <td> 6 </td>
+      </tr>
+    </table>
+        </div>
+
+    <div id='piechart' class='flex-child'> 
+        </div>
     </div>
 
-<table style="width:50%; margin-right:auto;">
-  <colgroup>
-    <col span='3' style="background-color:tan">
-  </colgroup>
-  <tr>
-    <th style="width:150px"> Player </th>
-    <th style="width:150px"> Country </th>
-    <th style="width:150px"> Supply Centers </th>
-  </tr>
-  <tr>
-    <td> Ella </td>
-    <td> Italy </td>
-    <td> 3 </td>
-  </tr>
-  <tr>
-    <td> Eric </td>
-    <td> France </td>
-    <td> 3 </td>
-  </tr>
-  <tr>
-    <td> Haley </td>
-    <td> Russia </td>
-    <td> 4 </td>
-  </tr>
-  <tr>
-    <td> Jen </td>
-    <td> England </td>
-    <td> 3 </td>
-  </tr>
-  <tr>
-    <td> John </td>
-    <td> Turkey </td>
-    <td> 3 </td>
-  </tr>
-  <tr>
-    <td> Marc </td>
-    <td> Austro-Germany </td>
-    <td> 6 </td>
-  </tr>
-</table>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Ownership', 'Supply Centers'],
+  ['Austro-Germany', 6],
+  ['England', 3],
+  ['France', 3],
+  ['Italy', 3],
+  ['Russia', 4],
+  ['Turkey', 3],
+  ['Neutral', 12]
+]);
+
+  var options = {'title':'Supply Center Owenership Distribution', 'width':600, 'height':450, 'titleTextStyle': {'color': 'white'},
+                 'backgroundColor': 'black', 'colors': ['#60564C', '#4274AA', '#93ADA6', '#595C30', '#D7C3A9', '#AC8539', '#ECAB80'],
+                 'pieSliceText': 'label', 'pieSliceTextStyle': {'color': 'white'}, 'legend': {'textStyle': {'color': 'white'}},
+                 'chartArea': {'width': 500, 'height': 400, 'top': 60, 'left': 70}
+                 } 
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+
 <br> <br />
     
 </body>

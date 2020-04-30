@@ -35,3 +35,16 @@ td {
   color: black;
 }
 
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid black;
+}  
+
+.flex-child:first-child {
+    margin-right: 10px;
+} 
+
