@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        var austroGermany_sc = 6;
+        var england_sc = 3;
+        var france_sc = 3;
+        var italy_sc = 3;
+        var russia_sc = 4;
+        var turkey_sc = 3;
+        var neutral_sc = 34 - (austroGermany_sc + england_sc + france_sc + italy_sc + russia_sc + turkey_sc);
+        
+        window.onload = function(){
+            document.getElementById('austroGermany_sc').innerHTML = austroGermany_sc;
+            document.getElementById('england_sc').innerHTML = england_sc;
+            document.getElementById('france_sc').innerHTML = france_sc;
+            document.getElementById('italy_sc').innerHTML = italy_sc;
+            document.getElementById('russia_sc').innerHTML = russia_sc;
+            document.getElementById('turkey_sc').innerHTML = turkey_sc;
+        }
     
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Ownership', 'Supply Centers'],
+          ['Austro-Germany', austroGermany_sc],
+          ['England', england_sc],
+          ['France', france_sc],
+          ['Italy', italy_sc],
+          ['Russia', russia_sc],
+          ['Turkey', turkey_sc],
+          ['Neutral', neutral_sc]
+          ]);
+
+          var options = {'title':'Supply Center Owenership Distribution', 'width':600, 'height':450, 'titleTextStyle': {'color': 'white'},
+                     'backgroundColor': 'black', 'colors': ['#60564C', '#4274AA', '#93ADA6', '#595C30', '#D7C3A9', '#AC8539', '#ECAB80'],
+                     'pieSliceText': 'label', 'pieSliceTextStyle': {'color': 'white'}, 'legend': {'textStyle': {'color': 'white'}},
+                     'chartArea': {'width': 500, 'height': 400, 'top': 60, 'left': 70}
+                     } 
+
+          // Display the chart inside the <div> element with id="piechart"
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+        }
+    </script>
+
 <body>
   <link rel="stylesheet" href="style.css">
 <div id='heading' style='text-align: center'> <h1> Welcome to the game of Diplomacy! </h1> </div>
 <div id='state' style='text-align: center'> <h2> Turn: Fall 1901 </h2> <p> Current Board State: </p> </div>
 <div id='board_img' style='text-align: center'>
-    <img src="BoardF1901.jpeg" alt="Board" style="width:700px;height:500px;">
+    <img src="BoardF1901.jpg" alt="Board" style="width:700px;height:500px;">
     </div>
 <br> <br />
 
@@ -25,32 +72,32 @@
       <tr>
         <td> Ella </td>
         <td> Italy </td>
-        <td> 3 </td>
+        <td id='italy_sc'> </td>
       </tr>
       <tr>
         <td> Eric </td>
         <td> France </td>
-        <td> 3 </td>
+        <td id='france_sc'> </td>
       </tr>
       <tr>
         <td> Haley </td>
         <td> Russia </td>
-        <td> 4 </td>
+        <td id='russia_sc'> </td>
       </tr>
       <tr>
         <td> Jen </td>
         <td> England </td>
-        <td> 3 </td>
+        <td id='england_sc'> </td>
       </tr>
       <tr>
         <td> John </td>
         <td> Turkey </td>
-        <td> 3 </td>
+        <td id='turkey_sc'> </td>
       </tr>
       <tr>
         <td> Marc </td>
         <td> Austro-Germany </td>
-        <td> 6 </td>
+        <td id='austroGermany_sc'> </td>
       </tr>
     </table>
         </div>
@@ -58,37 +105,6 @@
     <div id='piechart' class='flex-child'> 
         </div>
     </div>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Ownership', 'Supply Centers'],
-  ['Austro-Germany', 6],
-  ['England', 3],
-  ['France', 3],
-  ['Italy', 3],
-  ['Russia', 4],
-  ['Turkey', 3],
-  ['Neutral', 12]
-]);
-
-  var options = {'title':'Supply Center Owenership Distribution', 'width':600, 'height':450, 'titleTextStyle': {'color': 'white'},
-                 'backgroundColor': 'black', 'colors': ['#60564C', '#4274AA', '#93ADA6', '#595C30', '#D7C3A9', '#AC8539', '#ECAB80'],
-                 'pieSliceText': 'label', 'pieSliceTextStyle': {'color': 'white'}, 'legend': {'textStyle': {'color': 'white'}},
-                 'chartArea': {'width': 500, 'height': 400, 'top': 60, 'left': 70}
-                 } 
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
-</script>
 
 <br> <br />
     
