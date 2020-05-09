@@ -9,7 +9,7 @@
         var russia_sc = 5;
         var turkey_sc = 5;
         var neutral_sc = 34 - (austroGermany_sc + england_sc + france_sc + italy_sc + russia_sc + turkey_sc);
-        
+
         window.onload = function(){
             document.getElementById('austroGermany_sc').innerHTML = austroGermany_sc;
             document.getElementById('england_sc').innerHTML = england_sc;
@@ -18,7 +18,7 @@
             document.getElementById('russia_sc').innerHTML = russia_sc;
             document.getElementById('turkey_sc').innerHTML = turkey_sc;
         }
-    
+
         // Load google charts
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
@@ -40,7 +40,7 @@
                      'backgroundColor': 'black', 'colors': ['#60564C', '#4274AA', '#93ADA6', '#595C30', '#D7C3A9', '#AC8539', '#ECAB80'],
                      'pieSliceText': 'label', 'pieSliceTextStyle': {'color': 'white'}, 'legend': {'textStyle': {'color': 'white'}},
                      'chartArea': {'width': 500, 'height': 400, 'top': 60, 'left': 70}
-                     } 
+                     }
 
           // Display the chart inside the <div> element with id="piechart"
           var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -51,6 +51,8 @@
 <body>
   <link rel="stylesheet" href="style.css">
 <div id='heading' style='text-align: center'> <h1> Welcome to the game of Diplomacy! </h1> </div>
+    <img src="BoardS1901.jpg" alt="Board" style="width:700px;height:500px;">
+    <img src="BoardF1901.jpg" alt="Board" style="width:700px;height:500px;">
 <div id='state' style='text-align: center'> <h2> Turn: Spring 1902 </h2> <p> Current Board State: </p> </div>
 <div id='board_img' style='text-align: center'>
     <img src="BoardS1902.jpg" alt="Board" style="width:700px;height:500px;">
@@ -102,11 +104,11 @@
     </table>
         </div>
 
-    <div id='piechart' class='flex-child'> 
+    <div id='piechart' class='flex-child'>
         </div>
     </div>
 
 <br> <br />
-    
+
 </body>
 </html>
